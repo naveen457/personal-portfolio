@@ -1,7 +1,8 @@
 # personal-portfolio
 # 🚀 Personal Portfolio Website
 
-This is my personal portfolio website created using HTML, CSS, and JavaScript. It showcases who I am, my skills, experience, and how to contact me.
+-This is my personal portfolio website created using HTML, CSS, and JavaScript. It showcases who I am, my skills, experience, and how to contact me.
+-NOTE:these website is not fully reponsive ,it is designed for the desktops only.
 
 ##  Features
 - Smooth scrolling and navigation
