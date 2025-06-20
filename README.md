@@ -60,6 +60,6 @@ Everything that i have done for creating these personal portmy own foli is as pe
 ## 📱 Live Demo
 
 <!-- Add link if deployed -->
-You can view the live site here: [Live Demo](#)
+You can view the live site here: [[Live Demo](https://naveen457.github.io/personal-portfolio/)](#)
 
 ---
