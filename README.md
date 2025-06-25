@@ -13,7 +13,6 @@ _(Make sure GitHub Pages is enabled in repo settings)_
 
 - **HTML5** – Semantic and accessible markup  
 - **CSS3** – Clean styling with responsive layout  
-- **JavaScript** – *(optional if used for interactions or animations)*  
 - **Git & GitHub** – Version control and deployment via GitHub Pages
 
 ---
