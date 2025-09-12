@@ -4,8 +4,7 @@ Welcome to my personal portfolio! This website showcases my skills, projects, an
 
 ## 📸 Live Demo
 
-🌐 [View Portfolio](https://naveen457.github.io/personal-portfolio/)  
-_(Make sure GitHub Pages is enabled in repo settings)_
+🌐 [View Portfolio](https://naveen457.github.io/personal-portfolio/) 
 
 ---
 
