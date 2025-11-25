@@ -4,7 +4,7 @@ Welcome to my personal portfolio! This website showcases my skills, projects, an
 
 ## 📸 Live Demo
 
-🌐 [View Portfolio](https://naveen457.github.io/personal-portfolio/)
+🌐 [View Portfolio](https://personal-portfolio-pi-navy.vercel.app/)
 
 
 ---
