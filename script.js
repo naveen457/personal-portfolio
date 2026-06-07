@@ -6,63 +6,84 @@
     "Full Stack Developer",
   ],
   skills: [
-    { name: "Java", level: 88 },
-    { name: "Python", level: 94 },
+    { name: "Java", level: 95 },
+    { name: "Python", level: 70 },
     { name: "C++", level: 80 },
-    { name: "JavaScript", level: 86 },
-    { name: "React", level: 84 },
-    { name: "Node.js", level: 82 },
-    { name: "MongoDB", level: 78 },
-    { name: "AI/ML", level: 92 },
+    { name: "JavaScript", level: 50 },
+    { name: "React", level: 50 },
+    { name: "Node.js", level: 50 },
+    { name: "MongoDB", level: 80 },
+    { name: "AI/ML", level: 95 },
     { name: "Deep Learning", level: 90 },
-    { name: "NLP", level: 88 },
-    { name: "Git/GitHub", level: 88 },
+    { name: "NLP", level: 80 },
+    { name: "Git/GitHub", level: 90 },
   ],
   experience: [
     {
       date: "2025",
       title: "Gen AI Intern",
       company: "IBM",
-      description: "Built generative AI solutions and optimized NLP pipelines for enterprise automation and research applications.",
+      description:
+        "Built generative AI solutions and optimized NLP pipelines for enterprise automation and research applications.",
     },
     {
       date: "2024",
       title: "AI Research Project",
       company: "VIT Amaravati",
-      description: "Developed transformer-based models for contextual question answering and NLP-driven data insights.",
+      description:
+        "Developed transformer-based models for contextual question answering and NLP-driven data insights.",
     },
     {
       date: "2023",
       title: "Full Stack Developer",
       company: "Personal Portfolio",
-      description: "Designed and shipped a modern AI-focused portfolio with interactive UX, responsive design, and performance optimizations.",
+      description:
+        "Designed and shipped a modern AI-focused portfolio with interactive UX, responsive design, and performance optimizations.",
     },
   ],
   projects: [
     {
       title: "AI Portfolio Website",
-      description: "A polished AI/ML portfolio combining modern glassmorphism design, smooth animations, and dynamic content.",
+      description:
+        "A polished AI/ML portfolio combining modern glassmorphism design, smooth animations, and dynamic content.",
       tags: ["AI/ML", "Web", "React-ready"],
       links: [
-        { label: "GitHub", href: "https://github.com/naveen457/personal-portfolio" },
-        { label: "Live Demo", href: "https://personal-portfolio-pi-navy.vercel.app/" },
+        {
+          label: "GitHub",
+          href: "https://github.com/naveen457/personal-portfolio",
+        },
+        {
+          label: "Live Demo",
+          href: "https://personal-portfolio-pi-navy.vercel.app/",
+        },
       ],
     },
     {
       title: "3D Object Detection",
-      description: "Implemented real-time 3D detection using YOLO and depth estimation for immersive machine perception.",
+      description:
+        "Implemented real-time 3D detection using YOLO and depth estimation for immersive machine perception.",
       tags: ["Deep Learning", "Computer Vision"],
       links: [
-        { label: "GitHub", href: "https://github.com/naveen457/Real-Time-3D-Object-Detection" },
+        {
+          label: "GitHub",
+          href: "https://github.com/naveen457/Real-Time-3D-Object-Detection",
+        },
       ],
     },
     {
       title: "Medical Chatbot",
-      description: "Built an intent-aware healthcare assistant with IBM Watsonx for improved medical query understanding.",
+      description:
+        "Built an intent-aware healthcare assistant with IBM Watsonx for improved medical query understanding.",
       tags: ["NLP", "AI", "Chatbot"],
       links: [
-        { label: "GitHub", href: "https://github.com/naveen457/medical_chatbot" },
-        { label: "Live Demo", href: "https://medical-chatbot-liard-tau.vercel.app/" },
+        {
+          label: "GitHub",
+          href: "https://github.com/naveen457/medical_chatbot",
+        },
+        {
+          label: "Live Demo",
+          href: "https://medical-chatbot-liard-tau.vercel.app/",
+        },
       ],
     },
   ],
@@ -83,17 +104,20 @@
     {
       year: "2026",
       role: "AI/ML Growth",
-      detail: "Expanding AI product capabilities, building scalable LLM-powered experiences, and improving model deployment workflows.",
+      detail:
+        "Expanding AI product capabilities, building scalable LLM-powered experiences, and improving model deployment workflows.",
     },
     {
       year: "2025",
       role: "Gen AI Internship",
-      detail: "Delivered generative AI proof-of-concepts at IBM and contributed to enterprise AI infrastructure.",
+      detail:
+        "Delivered generative AI proof-of-concepts at IBM and contributed to enterprise AI infrastructure.",
     },
     {
       year: "2024",
       role: "Research & Projects",
-      detail: "Published advanced NLP research prototypes and led AI-driven project development for web applications.",
+      detail:
+        "Published advanced NLP research prototypes and led AI-driven project development for web applications.",
     },
   ],
 };
@@ -170,7 +194,8 @@ function buildProjects() {
       .join("");
     const links = project.links
       .map(
-        (link) => `<a href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>`
+        (link) =>
+          `<a href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>`,
       )
       .join("");
 
@@ -219,7 +244,7 @@ function createRevealObserver() {
         }
       });
     },
-    { threshold: 0.16 }
+    { threshold: 0.16 },
   );
 
   document.querySelectorAll(".reveal-up, .reveal-right").forEach((element) => {
@@ -302,7 +327,11 @@ function initPortfolio() {
   buildSkills();
   buildTimeline("experience-timeline", portfolioData.experience);
   buildProjects();
-  buildCards("certifications-list", portfolioData.certifications, "certification-card");
+  buildCards(
+    "certifications-list",
+    portfolioData.certifications,
+    "certification-card",
+  );
   buildTimeline("resume-timeline", portfolioData.resumeTimeline);
   buildInterests();
   createRevealObserver();
