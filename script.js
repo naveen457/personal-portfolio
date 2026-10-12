@@ -1,20 +1,20 @@
 const portfolioData = {
   roles: [
-    "Agentic AI & LLM Systems Architect",
-    "Multi-Agent & Meta-RL Researcher",
-    "Deep Learning & Vision Engineer",
-    "Full Stack AI Developer (React / FastAPI)",
+    "Agentic AI & Multi-Agent Systems Builder",
+    "Meta-RL and Reinforcement Learning Practitioner",
+    "Computer Vision and Applied Deep Learning Engineer",
+    "Full-Stack Developer for AI Products",
   ],
   skills: [
-    { name: "Python (AI / ML Core)", level: 90 },
-    { name: "LangGraph & Multi-Agent", level: 92 },
-    { name: "PyTorch & Deep Learning", level: 90 },
-    { name: "LangChain & RAG Pipelines", level: 95 },
+    { name: "Python for AI/ML Systems", level: 92 },
+    { name: "LangGraph & Multi-Agent Orchestration", level: 90 },
+    { name: "LangChain, RAG, and Tool Calling", level: 90 },
+    { name: "PyTorch & Reinforcement Learning", level: 87 },
     { name: "Model Context Protocol (MCP)", level: 88 },
-    { name: "Full Stack (React, Node, Express)", level: 84 },
-    { name: "MongoDB & Database Systems", level: 80 },
-    { name: "Java ", level: 95 },
-    { name: "Git, GitHub & CI/CD", level: 95 },
+    { name: "Computer Vision (Depth + Detection)", level: 84 },
+    { name: "Full Stack (React, Node.js, Express)", level: 85 },
+    { name: "MongoDB, APIs, and Auth Flows", level: 83 },
+    { name: "GitHub Workflow & Deployment", level: 90 },
   ],
   experience: [
     {
@@ -22,7 +22,7 @@ const portfolioData = {
       title: "Gen AI & Multi-Agent Researcher",
       company: "Independent & Open Source",
       description:
-        "Architecting autonomous multi-agent systems, Meta-RL coordination architectures, and custom Model Context Protocol (MCP) ecosystems. Built and deployed the Astrix production workspace platform.",
+        "Building adaptive multi-agent runtimes, RL-based architecture experiments, and MCP-integrated tooling while shipping full-stack AI applications like Astrix.",
     },
     {
       date: "2025",
@@ -36,14 +36,14 @@ const portfolioData = {
       title: "AI & Computer Vision Researcher",
       company: "VIT Amaravati",
       description:
-        "Researched monocular 3D-aware object detection using Faster R-CNN, transformer-based contextual QA systems, and VizDoom reinforcement learning policies.",
+        "Implemented monocular depth + detection pipelines and PPO-based VizDoom reinforcement learning experiments with reproducible training workflows.",
     },
     {
       date: "2023 - 2024",
       title: "Full Stack Developer",
       company: "Personal & Web Projects",
       description:
-        "Engineered modern responsive web experiences, authentication systems, and cloud-hosted portfolio platforms with performance-first design.",
+        "Engineered responsive web products, authentication workflows, and cloud-deployed project experiences across portfolio and application repositories.",
     },
   ],
   projects: [
@@ -53,8 +53,8 @@ const portfolioData = {
       badge: "Live Production App",
       badgeType: "live",
       description:
-        "Production full-stack workspace and authentication platform. Features React 19, Vite, Express, and MongoDB, complete with Resend email OTP verification, password reset workflows, and Google/GitHub OAuth.",
-      tags: ["React 19", "Vite", "Node.js", "Express", "MongoDB", "OAuth", "REST API"],
+        "Full-stack authentication and profile platform with React/Vite frontend and Express/MongoDB backend, including email OTP verification (Resend), password reset, and Google/GitHub OAuth.",
+      tags: ["React", "Vite", "Node.js", "Express", "MongoDB", "Resend", "OAuth"],
       links: [
         {
           label: "Live Demo",
@@ -75,8 +75,8 @@ const portfolioData = {
       badge: "Featured Capstone",
       badgeType: "featured",
       description:
-        "Autonomous multi-agent framework designed for dynamic goal decomposition, multi-step planning, and intelligent task execution leveraging Retrieval-Augmented Generation (RAG) and vector knowledge bases.",
-      tags: ["LangGraph", "LangChain", "Multi-Agent", "RAG", "Autonomous Planning", "Python"],
+        "Adaptive multi-agent framework for autonomous planning, knowledge retrieval, and intelligent task execution with LangGraph-based orchestration.",
+      tags: ["Python", "LangGraph", "LangChain", "RAG", "Agent Orchestration"],
       links: [
         {
           label: "GitHub",
@@ -92,8 +92,8 @@ const portfolioData = {
       badge: "AI Research",
       badgeType: "featured",
       description:
-        "Research architecture implementing Meta-Reinforcement Learning for LLM-based multi-agent networks. Dynamically optimizes agent communication topologies, collaboration strategies, and rapid policy adaptation.",
-      tags: ["Meta-RL", "LangGraph", "PyTorch", "FastAPI", "Multi-Agent", "Python 3.10+"],
+        "Meta-RL based research framework that adapts agent composition, roles, and communication topology for LLM-based multi-agent systems.",
+      tags: ["Meta-RL", "LangGraph", "PyTorch", "FastAPI", "Pydantic", "Python"],
       links: [
         {
           label: "GitHub",
@@ -109,8 +109,8 @@ const portfolioData = {
       badge: "Deep RL",
       badgeType: "featured",
       description:
-        "Deep Reinforcement Learning agent leveraging Proximal Policy Optimization (PPO) in the VizDoom 3D environment. Learns tactical decision-making directly from raw visual frames with model checkpointing for accelerated convergence.",
-      tags: ["Deep RL", "PPO", "VizDoom", "PyTorch", "Gymnasium", "Computer Vision"],
+        "PPO-based reinforcement learning experiments in VizDoom with checkpointed training workflows to resume runs and compare scratch versus resumed learning.",
+      tags: ["PPO", "VizDoom", "Stable-Baselines3", "PyTorch", "OpenAI Gym"],
       links: [
         {
           label: "GitHub",
@@ -126,8 +126,8 @@ const portfolioData = {
       badge: "Computer Vision",
       badgeType: "featured",
       description:
-        "3D spatial object detection fusing monocular depth estimation (NYU Depth) with Faster R-CNN (ResNet50-FPN) on COCO 2017. Predicts real-time 3D geometry and metric spatial distances from monocular video cameras.",
-      tags: ["Faster R-CNN", "ResNet50", "Monocular Depth", "PyTorch", "COCO", "OpenCV"],
+        "Real-time 3D-aware object detection prototype combining monocular depth estimation with Faster R-CNN object detection on COCO/NYU-style workflows.",
+      tags: ["Faster R-CNN", "ResNet50-FPN", "Monocular Depth", "PyTorch", "COCO", "OpenCV"],
       links: [
         {
           label: "GitHub",
@@ -143,8 +143,8 @@ const portfolioData = {
       badge: "Protocol & Tooling",
       badgeType: "featured",
       description:
-        "End-to-end implementation of Anthropic's Model Context Protocol (MCP). Features custom client drivers for remote MCP server communication and servers integrating Manim mathematical animations for agents.",
-      tags: ["MCP SDK", "Python", "JSON-RPC", "Manim Engine", "AsyncIO", "Agent Tooling"],
+        "MCP tooling set: a FastMCP server with callable tools/resources, a companion client for remote server communication, and a Manim MCP server for animation-oriented tool execution.",
+      tags: ["FastMCP", "Python", "Remote MCP", "Tooling", "Manim", "Agent Integrations"],
       links: [
         {
           label: "MCP Server",
@@ -157,43 +157,72 @@ const portfolioData = {
           href: "https://github.com/naveen457/mcp-client",
           type: "github",
         },
+        {
+          label: "Manim MCP Server",
+          href: "https://github.com/naveen457/manim-mcp-server",
+          type: "github",
+        },
       ],
     },
     {
-      title: "Agentic AI Frameworks & Observability",
+      title: "LangSmith Tracing & Agent Evaluation Experiments",
       category: "agents",
-      badge: "Agentic Stack",
+      badge: "Observability",
       badgeType: "featured",
       description:
-        "Comprehensive suite of agent implementations: cyclic state graphs with LangGraph, tool-augmented reasoning chains with LangChain, and production-grade LLM tracing, error isolation, and latency evaluation with LangSmith.",
-      tags: ["LangGraph", "LangChain", "LangSmith", "LLM Tracing", "RAG Evaluation"],
+        "Hands-on LangSmith experiments for tracing and evaluating LLM workflows, including graph-based essay scoring and agent/tool instrumentation.",
+      tags: ["LangSmith", "Tracing", "Evaluation", "LangGraph", "Agents"],
       links: [
         {
-          label: "LangGraph",
+          label: "GitHub",
+          href: "https://github.com/naveen457/LangSmith",
+          type: "github",
+          primary: true,
+        },
+      ],
+    },
+    {
+      title: "LangChain RAG & Workflow Learning Repository",
+      category: "agents",
+      badge: "LLM Workflow",
+      badgeType: "featured",
+      description:
+        "Collection of LangChain practice modules covering document loaders, prompts, runnables, retrievers, vector stores, and a transcript-based RAG pipeline.",
+      tags: ["LangChain", "RAG", "Embeddings", "Chroma", "Prompt Engineering"],
+      links: [
+        {
+          label: "GitHub",
+          href: "https://github.com/naveen457/LangChain",
+          type: "github",
+          primary: true,
+        },
+      ],
+    },
+    {
+      title: "LangGraph Workflow Patterns Playground",
+      category: "agents",
+      badge: "Graph Orchestration",
+      badgeType: "featured",
+      description:
+        "Hands-on repository exploring sequential, conditional, parallel, and persistent LangGraph workflows, including tool execution and SQLite checkpoint examples.",
+      tags: ["LangGraph", "Workflow Design", "StateGraph", "Checkpointing", "Python"],
+      links: [
+        {
+          label: "GitHub",
           href: "https://github.com/naveen457/LangGraph",
           type: "github",
           primary: true,
         },
-        {
-          label: "LangChain",
-          href: "https://github.com/naveen457/LangChain",
-          type: "github",
-        },
-        {
-          label: "LangSmith",
-          href: "https://github.com/naveen457/LangSmith",
-          type: "github",
-        },
       ],
     },
     {
-      title: "Medical Intent AI Chatbot",
-      category: "agents",
+      title: "Medical Assistant Chatbot (IBM Watson)",
+      category: "fullstack",
       badge: "Live Demo",
       badgeType: "live",
       description:
-        "Conversational healthcare assistant built with IBM Watsonx and intent-aware NLP for clinical query triage, symptom guidance, and interactive medical information dissemination.",
-      tags: ["NLP", "IBM Watsonx", "Healthcare AI", "JavaScript", "Vercel"],
+        "Healthcare assistant web interface integrated with IBM Watson Assistant for symptom-style conversations and basic medical guidance flows.",
+      tags: ["IBM Watson Assistant", "HTML", "CSS", "Conversational AI", "Vercel"],
       links: [
         {
           label: "Live Demo",
@@ -209,13 +238,13 @@ const portfolioData = {
       ],
     },
     {
-      title: "ML Challenge & Predictive Modeling Suite",
+      title: "ML Challenge Experiments (Learning Repository)",
       category: "rl-cv",
-      badge: "Machine Learning",
+      badge: "Learning/Demo",
       badgeType: "featured",
       description:
-        "Competitive machine learning solutions featuring high-performance feature engineering pipelines, stratified cross-validation architectures, and ensemble gradient boosting (XGBoost) for predictive benchmarks.",
-      tags: ["Scikit-Learn", "XGBoost", "Feature Engineering", "Data Pipelines", "Python"],
+        "Practice repository for ML challenge experimentation and benchmark problem-solving workflows.",
+      tags: ["Machine Learning", "Experimentation", "Challenge Practice"],
       links: [
         {
           label: "GitHub",
@@ -225,38 +254,16 @@ const portfolioData = {
         },
       ],
     },
-    {
-      title: "Modern Glassmorphic AI Portfolio",
-      category: "fullstack",
-      badge: "Live Portfolio",
-      badgeType: "live",
-      description:
-        "Responsive, dynamic personal web portfolio featuring dark-mode glassmorphism, reactive category filtering, live GitHub project synchronization, and fluid interactive animations.",
-      tags: ["HTML5", "CSS3 Glassmorphism", "Vanilla JavaScript", "Responsive UI", "Vercel"],
-      links: [
-        {
-          label: "Live Demo",
-          href: "https://personal-portfolio-pi-navy.vercel.app/",
-          type: "external",
-          primary: true,
-        },
-        {
-          label: "GitHub",
-          href: "https://github.com/naveen457/personal-portfolio",
-          type: "github",
-        },
-      ],
-    },
   ],
   interests: [
-    "Adaptive Multi-Agent Frameworks & Autonomous Planning",
-    "Meta-Reinforcement Learning for Dynamic Agent Coordination",
-    "Model Context Protocol (MCP) & Custom Agent Tooling",
-    "Cyclic State Graphs with LangGraph & Tool Chaining",
-    "Deep Reinforcement Learning (PPO in VizDoom 3D)",
-    "Computer Vision & 3D Monocular Spatial Perception",
-    "Production Full-Stack AI Platforms (Astrix, React, FastAPI)",
-    "LLM Observability, Telemetry & RAG Tracing (LangSmith)",
+    "Adaptive Multi-Agent Architectures for Task-Specific Reasoning",
+    "Meta-RL Policies for Dynamic Agent Composition and Routing",
+    "Model Context Protocol (MCP) Server/Client Ecosystem Design",
+    "LangGraph Workflow Design (Sequential, Conditional, Parallel)",
+    "Reinforcement Learning with PPO in 3D Environments",
+    "Depth-Aware Computer Vision and Real-Time Detection Pipelines",
+    "RAG Applications with LangChain + Vector Retrieval",
+    "LLM Observability and Tracing with LangSmith",
   ],
   certifications: [
     { title: "IBM Gen AI Internship", provider: "IBM" },
@@ -268,13 +275,13 @@ const portfolioData = {
       year: "2026",
       role: "Agentic AI & Systems Engineering",
       detail:
-        "Architecting adaptive multi-agent coordination frameworks (LangGraph, Meta-RL), expanding MCP server ecosystems, and shipping production SaaS applications.",
+        "Expanding adaptive multi-agent and MCP ecosystem projects while combining research-style AI experimentation with production web deployment.",
     },
     {
       year: "2025",
       role: "Gen AI Internship & Multi-Agent Research",
       detail:
-        "Completed IBM Gen AI internship with Watsonx; engineered Capstone autonomous multi-agent RAG system and launched Astrix full-stack application.",
+        "Completed IBM Gen AI internship with Watsonx, developed medical assistant chatbot workflows, and built Capstone + Astrix project foundations.",
     },
     {
       year: "2024",
