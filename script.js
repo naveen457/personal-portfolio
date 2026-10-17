@@ -731,7 +731,15 @@ async function initPortfolio() {
     handleScrollEffects();
     highlightNavOnScroll();
   });
-  window.addEventListener("load", hideLoader);
+}
+
+// The GitHub project sync is optional. Do not let a slow or unavailable network
+// request keep the whole portfolio covered by the loading overlay.
+if (document.readyState === "complete") {
+  hideLoader();
+} else {
+  window.addEventListener("load", hideLoader, { once: true });
+  window.setTimeout(hideLoader, 4000);
 }
 
 document.addEventListener("DOMContentLoaded", initPortfolio);
