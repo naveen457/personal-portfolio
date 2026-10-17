@@ -292,6 +292,20 @@ const portfolioData = {
   ],
 };
 
+const githubConfig = {
+  username: "naveen457",
+  perPage: 100,
+};
+
+const filterLabels = {
+  all: "All Projects",
+  agents: "Agentic AI & Multi-Agent",
+  "rl-cv": "Reinforcement Learning & CV",
+  fullstack: "Full-Stack & Systems",
+};
+
+let currentProjectFilter = "all";
+
 const typingElement = document.getElementById("typing-text");
 const roleTexts = portfolioData.roles;
 
@@ -359,7 +373,143 @@ function buildTimeline(sectionId, items) {
 const githubSvg = `<svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>`;
 const externalSvg = `<svg viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2zm6.5 0h3.5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0V4.56L8.53 9.03a.75.75 0 0 1-1.06-1.06l4.47-4.47h-1.69a.75.75 0 0 1 0-1.5z"></path></svg>`;
 
+function getFeaturedProjectsByRepo() {
+  return portfolioData.projects.reduce((map, project) => {
+    const githubLink = project.links.find((link) => link.type === "github");
+    if (githubLink) {
+      const repoName = githubLink.href.split("/").pop()?.toLowerCase();
+      if (repoName) {
+        map[repoName] = project;
+      }
+    }
+    return map;
+  }, {});
+}
+
+function formatRepoTitle(name) {
+  return name
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function inferProjectCategory(repo) {
+  const searchableText = `${repo.name} ${repo.description || ""} ${(repo.topics || []).join(" ")}`.toLowerCase();
+  const rlCvKeywords = ["rl", "reinforcement", "vizdoom", "vision", "detection", "depth", "cv", "ml"];
+  const agentKeywords = ["agent", "langgraph", "langchain", "rag", "llm", "mcp", "ai"];
+
+  if (rlCvKeywords.some((keyword) => searchableText.includes(keyword))) {
+    return "rl-cv";
+  }
+  if (agentKeywords.some((keyword) => searchableText.includes(keyword))) {
+    return "agents";
+  }
+  return "fullstack";
+}
+
+function buildDynamicTags(repo) {
+  const tags = [];
+  if (repo.language) {
+    tags.push(repo.language);
+  }
+  (repo.topics || []).forEach((topic) => {
+    if (!tags.includes(topic) && tags.length < 6) {
+      tags.push(topic);
+    }
+  });
+  if (!tags.length) {
+    tags.push("GitHub Repository");
+  }
+  return tags;
+}
+
+function buildDynamicLinks(repo, featuredProject) {
+  if (featuredProject?.links?.length) {
+    return featuredProject.links;
+  }
+  const links = [];
+  if (repo.homepage) {
+    links.push({
+      label: "Live Demo",
+      href: repo.homepage,
+      type: "external",
+      primary: true,
+    });
+  }
+  links.push({
+    label: "GitHub",
+    href: repo.html_url,
+    type: "github",
+    primary: !repo.homepage,
+  });
+  return links;
+}
+
+function toProjectCard(repo, featuredProject) {
+  return {
+    title: featuredProject?.title || formatRepoTitle(repo.name),
+    category: featuredProject?.category || inferProjectCategory(repo),
+    badge:
+      featuredProject?.badge ||
+      (repo.homepage ? "Live Demo" : repo.archived ? "Archived" : "GitHub Repo"),
+    badgeType:
+      featuredProject?.badgeType || (repo.homepage ? "live" : "featured"),
+    description:
+      featuredProject?.description ||
+      repo.description ||
+      "Open-source project from my GitHub profile.",
+    tags: featuredProject?.tags || buildDynamicTags(repo),
+    links: buildDynamicLinks(repo, featuredProject),
+  };
+}
+
+function updateProjectFilterCounts() {
+  const counts = {
+    all: portfolioData.projects.length,
+    agents: portfolioData.projects.filter((project) => project.category === "agents").length,
+    "rl-cv": portfolioData.projects.filter((project) => project.category === "rl-cv").length,
+    fullstack: portfolioData.projects.filter((project) => project.category === "fullstack").length,
+  };
+
+  document
+    .querySelectorAll(".projects-filter-bar .filter-btn")
+    .forEach((button) => {
+      const filter = button.getAttribute("data-filter");
+      const label = filterLabels[filter];
+      const count = counts[filter] ?? 0;
+      button.textContent = `${label} (${count})`;
+      button.disabled = filter !== "all" && count === 0;
+    });
+}
+
+async function syncProjectsFromGitHub() {
+  const featuredProjectsByRepo = getFeaturedProjectsByRepo();
+  const endpoint = `https://api.github.com/users/${githubConfig.username}/repos?per_page=${githubConfig.perPage}&sort=updated`;
+
+  try {
+    const response = await fetch(endpoint);
+    if (!response.ok) {
+      throw new Error(`GitHub API returned ${response.status}`);
+    }
+
+    const repositories = await response.json();
+    const publicOwnedRepositories = repositories.filter(
+      (repo) => !repo.fork,
+    );
+
+    portfolioData.projects = publicOwnedRepositories
+      .map((repo) => toProjectCard(repo, featuredProjectsByRepo[repo.name.toLowerCase()]))
+      .sort((projectA, projectB) => {
+        const isAFeatured = projectA.badge === "Live Production App" || projectA.badge === "Featured Capstone";
+        const isBFeatured = projectB.badge === "Live Production App" || projectB.badge === "Featured Capstone";
+        return Number(isBFeatured) - Number(isAFeatured);
+      });
+  } catch (error) {
+    console.warn("Falling back to bundled project data.", error);
+  }
+}
+
 function buildProjects(filter = "all") {
+  currentProjectFilter = filter;
   const projectsGrid = document.getElementById("projects-grid");
   projectsGrid.innerHTML = "";
 
@@ -367,6 +517,11 @@ function buildProjects(filter = "all") {
     filter === "all"
       ? portfolioData.projects
       : portfolioData.projects.filter((p) => p.category === filter);
+
+  if (!filteredProjects.length) {
+    projectsGrid.innerHTML = "<p>No projects available for this category right now.</p>";
+    return;
+  }
 
   filteredProjects.forEach((project) => {
     const card = document.createElement("article");
@@ -526,15 +681,34 @@ function initBackToTop() {
   });
 }
 
+function applyTheme(theme) {
+  document.body.setAttribute("data-theme", theme);
+  localStorage.setItem("portfolio-theme", theme);
+}
+
+function initThemeSwitcher() {
+  const select = document.getElementById("theme-select");
+  const storedTheme = localStorage.getItem("portfolio-theme") || "aurora";
+  if (select) {
+    select.value = storedTheme;
+    select.addEventListener("change", (event) => {
+      applyTheme(event.target.value);
+    });
+  }
+  applyTheme(storedTheme);
+}
+
 function hideLoader() {
   const loader = document.getElementById("page-loader");
   loader?.classList.add("hidden");
   setTimeout(() => loader?.remove(), 600);
 }
 
-function initPortfolio() {
+async function initPortfolio() {
   buildSkills();
   buildTimeline("experience-timeline", portfolioData.experience);
+  await syncProjectsFromGitHub();
+  updateProjectFilterCounts();
   buildProjects("all");
   initProjectFilters();
   buildCards(
@@ -548,6 +722,7 @@ function initPortfolio() {
   initMobileNavigation();
   initContactForm();
   initBackToTop();
+  initThemeSwitcher();
   handleScrollEffects();
   highlightNavOnScroll();
   typeRoles();
