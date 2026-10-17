@@ -1,5 +1,23 @@
 # 💼 Tanikonda Naveen | AI & Engineering Portfolio
 
+## Vercel deploy hook
+
+The repository includes an optional Git `post-push` hook that triggers your Vercel deploy hook after a push to `main`. The secret hook URL is read from your local environment and is never committed.
+
+In PowerShell, set your generated Vercel deploy hook URL for future terminals, then open a new terminal:
+
+```powershell
+setx VERCEL_DEPLOY_HOOK_URL "https://api.vercel.com/v1/integrations/deploy/..."
+```
+
+Install the versioned Git hook once per clone:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-vercel-deploy-hook.ps1
+```
+
+Push to `main` to trigger a deployment. To target a different branch in the current terminal, set `VERCEL_DEPLOY_BRANCH` before pushing. You can also trigger the hook directly with `node scripts/trigger-vercel-deploy.mjs`.
+
 Welcome to my personal portfolio! This web platform highlights my strongest open-source work across agentic AI, MCP tooling, reinforcement learning, computer vision, RAG workflows, and production full-stack delivery.
 
 ## 🌐 Live Demo

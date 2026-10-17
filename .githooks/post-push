@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Trigger Vercel only after a successful push to the configured deployment branch.
+# Change VERCEL_DEPLOY_BRANCH to deploy a branch other than main.
+branch="${VERCEL_DEPLOY_BRANCH:-main}"
+should_deploy=false
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [ "$local_ref" = "refs/heads/$branch" ] && [ "$local_sha" != "0000000000000000000000000000000000000000" ]; then
+    should_deploy=true
+  fi
+done
+
+if [ "$should_deploy" = true ]; then
+  node scripts/trigger-vercel-deploy.mjs
+fi
