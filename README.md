@@ -18,6 +18,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-vercel-deploy-hook.ps
 
 Push to `main` to trigger a deployment. To target a different branch in the current terminal, set `VERCEL_DEPLOY_BRANCH` before pushing. You can also trigger the hook directly with `node scripts/trigger-vercel-deploy.mjs`.
 
+For GitHub-hosted deployments, add the same URL as the `VERCEL_DEPLOY_HOOK_URL` Actions secret. The included GitHub Actions workflow triggers it for each push to `main` and can also be run manually from the Actions tab.
+
 Welcome to my personal portfolio! This web platform highlights my strongest open-source work across agentic AI, MCP tooling, reinforcement learning, computer vision, RAG workflows, and production full-stack delivery.
 
 ## 🌐 Live Demo
